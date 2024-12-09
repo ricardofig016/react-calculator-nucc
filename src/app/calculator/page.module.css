@@ -1,0 +1,33 @@
+.calcContainer {
+  background-image: url("../../../public/images/calculator.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 31.6rem;
+  width: 24rem;
+}
+
+.display {
+  width: 81%;
+  height: 15%;
+  margin: 15% 0 6% 9%;
+  padding: 0% 4%;
+  font-size: 3rem;
+  color: white;
+  font-family: "SevenSegment", Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  cursor: pointer;
+  /* border: 1px solid red; */
+}
+
+.row {
+  width: 81%;
+  height: 13.5%;
+  margin: 0 0 3.3% 9%;
+  display: flex;
+  justify-content: space-between;
+  gap: 4.5%;
+  /* border: 1px solid red; */
+}

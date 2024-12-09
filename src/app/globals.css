@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "SevenSegment";
+  src: url("../../public/fonts/seven_segment.ttf") format("truetype");
+}
+
 :root {
   --primary: #160b37;
   --secondary: #defbff;

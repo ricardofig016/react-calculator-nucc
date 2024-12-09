@@ -1,19 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./page.module.css";
+import CalcButton from "../../components/calcButton";
 
 export default function Calculator() {
-  const [display, setDisplay] = useState("");
+  const [display, setDisplay] = useState("0");
 
   const handleClick = (value) => {
-    setDisplay(display + value);
+    if (value == "=") calculate();
+    else if (display === "0" || display === "Error") setDisplay(value);
+    else if (display.length < 13) setDisplay(display + value);
   };
 
-  const handleClear = () => {
-    setDisplay("");
-  };
-
-  const handleCalculate = () => {
+  const calculate = () => {
     try {
       setDisplay(eval(display).toString());
     } catch {
@@ -21,33 +21,38 @@ export default function Calculator() {
     }
   };
 
+  const clear = () => setDisplay("0");
+
   return (
     <div className="mainContainer">
-      <h1>Calculator</h1>
-      <div>{display}</div>
-      <div>
-        <button onClick={() => handleClick("1")}>1</button>
-        <button onClick={() => handleClick("2")}>2</button>
-        <button onClick={() => handleClick("3")}>3</button>
-        <button onClick={() => handleClick("+")}>+</button>
-      </div>
-      <div>
-        <button onClick={() => handleClick("4")}>4</button>
-        <button onClick={() => handleClick("5")}>5</button>
-        <button onClick={() => handleClick("6")}>6</button>
-        <button onClick={() => handleClick("-")}>-</button>
-      </div>
-      <div>
-        <button onClick={() => handleClick("7")}>7</button>
-        <button onClick={() => handleClick("8")}>8</button>
-        <button onClick={() => handleClick("9")}>9</button>
-        <button onClick={() => handleClick("*")}>*</button>
-      </div>
-      <div>
-        <button onClick={handleClear}>C</button>
-        <button onClick={() => handleClick("0")}>0</button>
-        <button onClick={handleCalculate}>=</button>
-        <button onClick={() => handleClick("/")}>/</button>
+      <div className={styles.calcContainer}>
+        <div className={styles.display} onClick={clear}>
+          {display}
+        </div>
+        <div className={styles.row}>
+          <CalcButton value="7" onClick={handleClick}></CalcButton>
+          <CalcButton value="8" onClick={handleClick}></CalcButton>
+          <CalcButton value="9" onClick={handleClick}></CalcButton>
+          <CalcButton value="/" onClick={handleClick}></CalcButton>
+        </div>
+        <div className={styles.row}>
+          <CalcButton value="4" onClick={handleClick}></CalcButton>
+          <CalcButton value="5" onClick={handleClick}></CalcButton>
+          <CalcButton value="6" onClick={handleClick}></CalcButton>
+          <CalcButton value="*" onClick={handleClick}></CalcButton>
+        </div>
+        <div className={styles.row}>
+          <CalcButton value="1" onClick={handleClick}></CalcButton>
+          <CalcButton value="2" onClick={handleClick}></CalcButton>
+          <CalcButton value="3" onClick={handleClick}></CalcButton>
+          <CalcButton value="-" onClick={handleClick}></CalcButton>
+        </div>
+        <div className={styles.row}>
+          <CalcButton value="0" onClick={handleClick}></CalcButton>
+          <CalcButton value="." onClick={handleClick}></CalcButton>
+          <CalcButton value="=" onClick={handleClick}></CalcButton>
+          <CalcButton value="+" onClick={handleClick}></CalcButton>
+        </div>
       </div>
     </div>
   );
