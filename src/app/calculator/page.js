@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 export default function Calculator() {
@@ -20,7 +22,7 @@ export default function Calculator() {
   };
 
   return (
-    <div>
+    <div className="mainContainer">
       <h1>Calculator</h1>
       <div>{display}</div>
       <div>
