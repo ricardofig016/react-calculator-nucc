@@ -1,0 +1,46 @@
+.inputGroup {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.label {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+
+.btn {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  background-color: var(--secondary);
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.1s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.classification {
+  color: rgb(255, 255, 100);
+  text-decoration: underline;
+}

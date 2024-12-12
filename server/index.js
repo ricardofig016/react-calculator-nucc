@@ -1,23 +1,21 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-  console.log("Hello World!");
-});
+app.use(cors());
 
-app.get("/api/calculate-imc", (req, res) => {
+app.get("/api/calculate-bmi", (req, res) => {
   const { weight, height } = req.query;
-  const imc = (weight / (height * height)).toFixed(2);
-  let classification = "";
+  const bmi = (weight / (height * height)).toFixed(2);
 
-  if (imc < 16.6) classification = "Underweight";
-  else if (imc <= 24.9) classification = "Normal";
+  let classification = "";
+  if (bmi < 16.6) classification = "Underweight";
+  else if (bmi <= 24.9) classification = "Normal";
   else classification = "Overweight";
 
-  res.json({ imc, classification });
+  res.json({ bmi, classification });
 });
 
 app.listen(port, console.log(`Server running at http://localhost:${port}`));
